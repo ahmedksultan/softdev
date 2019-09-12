@@ -31,7 +31,3 @@ print('Totally random student: ' + studentPicker2())
 print('Random student from ORPHEUS: ' + studentPicker('orpheus'))
 print('Random student from REX: ' + studentPicker('rex'))
 print('Random student from ENDYMION: ' + studentPicker('endymion'))
-
-
-
-
