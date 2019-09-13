@@ -15,8 +15,6 @@ with open('occupations.csv') as csv_file:
             tempName = row[0]
             line = line + 1
 
-
-
 for x in range(0, 10):
     pickedNum = random.randint(0, 997)
     for entry in dictionary:
