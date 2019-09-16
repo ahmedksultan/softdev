@@ -1,6 +1,7 @@
 import csv
 import random
 
+#   this code section goes through the csv file and creates ranges of percentages for each job field using the data
 with open('occupations.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
     dictionary = {}
@@ -15,6 +16,7 @@ with open('occupations.csv') as csv_file:
             tempName = row[0]
             line = line + 1
 
+#   this code section uses the dictionary and prints a randomized selection (x10)
 for x in range(0, 10):
     pickedNum = random.randint(0, 997)
     for entry in dictionary:
