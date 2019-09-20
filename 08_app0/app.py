@@ -14,7 +14,7 @@ def hello_world():
 
 
 @app.route("/zoolander")
-def hello_obama():
+def hello_zoolander():
     print('Serving /zoolander...')
     return "what is this? a center for ants?"
 
@@ -26,8 +26,8 @@ def hello_bueller():
 
 
 @app.route("/borat")
-def hello_joe():
-    print("wa wa we wa!")
+def hello_borat():
+    print("Serving /borat... wa wa we wa!")
     return "jagshemash!"
 
 
