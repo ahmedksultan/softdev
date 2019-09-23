@@ -14,8 +14,9 @@ app = Flask(__name__)
 def occ():
     return render_template(
         "template.html",
-        title="Team Chuck Schumer",
-        header="Lauren and Ahmed, pd. 9",
+        title="SCHUMER - 10_occ",
+        header="Fields of occupation, and their percentages",
+        subheader="by TEAM CHUCK SCHUMER (Lauren Pehlivanian and Ahmed Sultan, pd 9)",
         random_occupation=randOcc.main(),
         tblHeading1="Occupation",
         tblHeading2="Percent",
