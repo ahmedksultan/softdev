@@ -20,6 +20,7 @@ with open('occupations.csv') as csv_file:
             dictionary[row[0]] = (float(row[1]) * 10) + (dictionary[tempName])
             tempName = row[0]
             line = line + 1
+    print(dictionary)
 
 #   this code section uses the dictionary and prints a randomized selection (x10)
 for x in range(0, 10):
