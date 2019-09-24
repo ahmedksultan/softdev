@@ -23,6 +23,10 @@ def occ():
         dict=randOcc.dictGenerate("occupations.csv")
     )
 
+@app.route("/")
+def root():
+    return "Hi! Check out /occupyflaskst for the assignment."
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
