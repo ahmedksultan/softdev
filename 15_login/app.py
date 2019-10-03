@@ -15,23 +15,20 @@ app = Flask(__name__)
 def root():
     return render_template("login.html")
 
+@app.route('/welcome')
+def welcome():
+    return render_template("welcome.html")
+
+@app.route('/error')
+def error():
+    return render_template("error.html")
 
 @app.route("/auth")
 def auth():
-    print("\n\n\n")
-    print("***DIAG: this Flask obj ***")
-    print(app)
-    print("***DIAG: request obj ***")
-    print(request)
-    print("***DIAG: request.args ***")
-    print(request.args)
-    print("***DIAG: request.args['username'] ***")
-    print(request.args["username"])
-    print("***DIAG: request.headers ***")
-    print(request.headers)
-    return render_template(
-        "login.html"
-    )
+    if request.args["username"] == "qbert" and request.args["password"] == "ahmednahi":
+        return redirect(url_for('welcome'))
+    else:
+        return redirect(url_for('error'))
 
 if __name__ == "__main__":
     app.debug = True
