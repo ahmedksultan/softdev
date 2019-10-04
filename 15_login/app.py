@@ -34,16 +34,11 @@ def root():
 def welcome():
     return render_template("welcome.html")
 
-@app.route('/error')
-def error():
-    return render_template("error.html")
-
 @app.route('/login')
 def login():
-    return render_template(
-        "login.html",
-        error = errorMsg)
+    return render_template("login.html")
 
+# handles the login process
 @app.route("/auth")
 def auth():
     inputUser = request.args['username']
@@ -55,11 +50,24 @@ def auth():
             return redirect(url_for('welcome'))
         else:
             errorMsg = "[INVALID PASSWORD]"
-            return redirect(url_for('error'))
+            return error(errorMsg)
     else:
-        errorMsg = "[INVALID USERNAME and/or PASSWORD]"
-        return redirect(url_for('error'))
+        if inputPswd != pswd:
+            errorMsg = "[INVALID USERNAME and PASSWORD]"
+            return error(errorMsg)
+        else:
+            errorMsg = "[INVALID USERNAME]"
+            return error(errorMsg)
 
+# for some reason, creating an error route does not include the message
+# thus, we decided to remove it and instead just return a customized message in an error template
+def error(errorMsg):
+    return render_template(
+        "error.html",
+        error=errorMsg
+    )
+
+# logout process only accessible from the logged-in page
 @app.route("/logout")
 def logout():
     session.pop('user')
