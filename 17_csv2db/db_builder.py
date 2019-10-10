@@ -7,7 +7,7 @@ import sqlite3  # enable control of an sqlite database
 import csv  # facilitate CSV I/O
 
 # creating/accessing SQLite3 database file
-DB_FILE = "school.db"
+DB_FILE = "discobandit.db"
 db = sqlite3.connect(DB_FILE) 
 c = db.cursor()  # facilitate db ops
 
