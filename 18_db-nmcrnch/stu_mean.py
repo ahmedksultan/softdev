@@ -31,7 +31,20 @@ def studentsGrades():
         else:
             gradesDict[idNo][1].append([course, mark])
 
+def computeAverage():
+    for student in gradesDict:
+        entry = gradesDict[student]
+        gcount = 0
+        gsum = 0.0
+        gall = entry[1]
+        for grade in gall:
+            gcount = gcount + 1
+            gsum = gsum + grade[1]
+        entry.append(gsum / gcount)
+    print(gradesDict)
+
 studentsGrades()
+computeAverage()
 
 # saving and exiting
 db.commit()
