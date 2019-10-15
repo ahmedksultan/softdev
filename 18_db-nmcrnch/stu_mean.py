@@ -41,10 +41,29 @@ def computeAverage():
             gcount = gcount + 1
             gsum = gsum + grade[1]
         entry.append(gsum / gcount)
-    print(gradesDict)
 
+def printAverage():
+    for student in gradesDict:
+        print(gradesDict[student][0], ":", gradesDict[student][2])
+
+def createTable():
+    q = "CREATE TABLE stu_avg (ID INTEGER PRIMARY KEY, AVERAGE REAL);"
+    c.execute(q)
+    for key in gradesDict:
+        q = "INSERT INTO stu_avg VALUES ({}, {});".format(key, gradesDict[key][2])
+        c.execute(q)
+
+def addCourses(id, code, mark):
+    q = "INSERT INTO courses VALUES({}, '{}', {});".format(id, code, mark)
+    print(q)
+    c.execute(q)
+
+
+# addCourses(1, 'harddev', 100)
 studentsGrades()
 computeAverage()
+printAverage()
+createTable()
 
 # saving and exiting
 db.commit()
