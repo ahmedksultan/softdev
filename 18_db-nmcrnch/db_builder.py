@@ -27,7 +27,7 @@ with open('students.csv', newline='') as csvfile:
 ###########################################################
 
 # creating courses table
-command = "CREATE TABLE courses(ID INT PRIMARY KEY, CODE TEXT NO NULL, MARK INT NO NULL);"
+command = "CREATE TABLE courses(ID INT, CODE TEXT NO NULL, MARK INT NO NULL);"
 c.execute(command)
 
 # reading through course.csv, populating courses table

@@ -59,7 +59,7 @@ def addCourses(id, code, mark):
     c.execute(q)
 
 
-# addCourses(1, 'harddev', 100)
+addCourses(3, 'harddev', 300)
 studentsGrades()
 computeAverage()
 printAverage()
