@@ -1,0 +1,54 @@
+body {
+    font-family: sans-serif;
+    background-color: #666666;
+}
+
+h1 {
+    background-color: #BDBDBD;
+    color: #FFFFFF;
+    margin: 0;
+    text-align: center;
+    padding: 5px;
+}
+
+.bodymain {
+    background-color: #757575;
+    padding: 0;
+}
+
+.bodysidebar {
+    margin: 0;
+    padding-left: 15px;
+    float: left;
+}
+
+.bodysidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bodysidebar ul li a {
+    color: #BDBDBD;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bodytext {
+    padding-left: 150px;
+    padding-right: 15px;
+}
+
+.bodytext h2 {
+    margin: 0;
+    padding-top: 15px;
+    padding-right: 15px;
+}
+
+.copyright {
+    background-color: #575757;
+    color: #6e6e6e;
+    padding: 10px;
+    text-align: right;
+    margin: 0;
+}
