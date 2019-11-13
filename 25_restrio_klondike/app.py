@@ -9,21 +9,19 @@ import json
 
 app = Flask(__name__)
 
-# Ahmed Sultan
-# SoftDev 1 pd 9
-# K24 -- A RESTful Journey Skyward
-# 2019-11-12
-
-app = Flask(__name__)
-
+# countries, currency exchange, & studio ghibli
 
 @app.route("/")
 def main():
-    u = urllib.request.urlopen(
-        "https://api.nasa.gov/planetary/apod?api_key=I9chRrUh43ayV1eRZa53qAmYznCGebkcoAtye5kP")
+    u = urllib.request.urlopen("https://restcountries.eu/rest/v2")
     response = u.read()
     data = json.loads(response)
-    return render_template("index.html", header=data['title'], picture=data['url'], info=data['explanation'])
+
+    u1 = urllib.request.urlopen("https://api.exchangerate-api.com/v4/latest/CAD")
+    response1 = u1.read()
+    data1 = json.loads(response)
+
+    return render_template("index.html", header=data[95]['name'], info=data[95]['capital'], pic=data[95]['flag'], currency=data[95]['currencies'][0]['name'], info2=data1['rates']['CNY'])
 
 
 if __name__ == "__main__":
