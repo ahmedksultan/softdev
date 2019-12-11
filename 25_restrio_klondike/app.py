@@ -35,16 +35,23 @@ def randCountry():
     ctry_capital = data[rand_num]['capital']
     ctry_flag = data[rand_num]['flag']
     ctry_currency = data[rand_num]['currencies'][0]['name']
+    ctry_population = data[rand_num]['population']
     ctry_languages = []
     for i in data[rand_num]['languages']:
         ctry_languages.append(i['name'])
 
-    return render_template("randcountry.html",
-                           name=ctry_name,
-                           flag=ctry_flag,
-                           capital=ctry_capital,
-                           currency=ctry_currency,
-                           languages=ctry_languages)
+    if (ctry_population > 2000000):
+        return render_template("randcountry.html",
+                               name=ctry_name,
+                               flag=ctry_flag,
+                               capital=ctry_capital,
+                               currency=ctry_currency,
+                               languages=ctry_languages,
+                               population=ctry_population)
+    else:
+        return redirect(url_for("randCountry"))
+
+    
 
 @app.route("/randNHLTeam")
 def randnhlteam():
