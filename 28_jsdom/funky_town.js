@@ -37,6 +37,7 @@ console.log(fibonacci(4));
 console.log(fibonacci(5));
 */
 
+// gcd
 var gcd = function (a, b) {
      if (b > a) {
           return gcd(b, a);
@@ -57,6 +58,7 @@ console.log(gcd(100, 15));
 
 students = ["joe", "bean", "alfred", "albert", "alexander", "alexandra", "alexei"];
 
+// randomStudent
 var randomStudent = function (list) {
      n = Math.floor(Math.random() * list.length);
      return list[n];
