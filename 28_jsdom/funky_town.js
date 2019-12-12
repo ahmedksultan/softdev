@@ -76,4 +76,47 @@ console.log(randomStudent(students));
 console.log(randomStudent(students));
 */
 
-document.getElementById("fibonacci").addEventListener("click", console.log("hello!"));
+/*
+
+var factorial = document.getElementById("factorial");
+factorial.addEventListener("click", function () {
+     console.log(fact(5));
+});
+
+var fib = document.getElementById("fibonacci");
+fib.addEventListener("click", function () {
+     console.log(fibonacci(5));
+});
+
+var gcdiv = document.getElementById("gcd");
+gcdiv.addEventListener("click", function () {
+     console.log(gcd(15, 3));
+});
+
+var randStud = document.getElementById("randomStudent");
+randStud.addEventListener("click", function () {
+     console.log(randomStudent(students));
+});
+
+*/
+
+var f = document.getElementById("factorial");
+f.addEventListener("click", function () {
+     document.getElementById("1").innerHTML = fact(5);
+     console.log(fact(5));
+});
+var fib = document.getElementById("fibonacci");
+fib.addEventListener("click", function () {
+     document.getElementById("2").innerHTML = fibonacci(5);
+     console.log(fibonacci(5));
+});
+var g = document.getElementById("gcd");
+g.addEventListener("click", function () {
+     document.getElementById("3").innerHTML = gcd(24, 20);
+     console.log(gcd(24, 20));
+});
+var ranStu = document.getElementById("randomStudent");
+ranStu.addEventListener("click", function () {
+     document.getElementById("4").innerHTML = randomStudent(students);
+     console.log(randomStudent(students));
+});
