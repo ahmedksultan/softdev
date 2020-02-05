@@ -18,7 +18,11 @@ function rectmode() {
 function draw(e) {
      console.log(e)
      if(mode==="dot"){
-          ctx.arc(e.offsetX,e.offsetY,2,0,360)
+          var circle = new Path2D();
+          circle.moveTo(e.offsetX, e.offsetY);
+          circle.arc(e.offsetX, e.offsetY, 2, 0, 2 * Math.PI);
+          ctx.fill(circle);
+          console.log("dot")
      }
 }
 
@@ -31,4 +35,4 @@ dotbutton.addEventListener('click', dotmode);
 var rectbutton = document.getElementById("rect")
 rectbutton.addEventListener('click', rectmode);
 
-c.addEventListener('click',draw)
+c.addEventListener('click', draw)
