@@ -35,4 +35,10 @@ def findZipcodeScoreBelow(zipcode, score):
      for restaurant in db.restaurants.find({'address.zipcode': zipcode, 'grades': {'$elemMatch': {'score': {'$lt': score}}}}):
           pprint.pprint(restaurant)
 
-findZipcodeScoreBelow("10026", "4")
+def findBoroughCuisineScore(borough, cuisine, score):
+     for restaurant in db.restaurants.find({'borough': borough, 'cuisine': cuisine, 'grades': {'$elemMatch': {'score': {'$gte': score}}}}):
+          pprint.pprint(restaurant)
+
+findBoroughCuisineScore('Manhattan', 'Indian', 10)
+
+restaurants.delete_many({})
