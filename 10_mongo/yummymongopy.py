@@ -5,7 +5,12 @@
 
 '''
 name of dataset: Pokedex
-
+description: contains the original 151 Pokemon from Generation 1, along with a few of their stats
+hyperlink: https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json
+brief summary of import:
+     1) open the .json file
+     2) read the .json file
+     3) insert pokemon entries into the database
 '''
 
 from pymongo import MongoClient
