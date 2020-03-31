@@ -2,11 +2,7 @@ const container = document.getElementById("container");
 const clear = document.getElementById("clear");
 const xmlns = "http://www.w3.org/2000/svg";
 
-var lastX = 0;
-var lastY = 0;
-
-var drawLine = false;
-var drawDot = false;
+var drawDot = true;
 
 var clearcont = function(event) {
      console.log("CLEARING CLEARING CLEARING");
@@ -16,7 +12,6 @@ var clearcont = function(event) {
      while (container.lastChild) {
           container.removeChild(container.lastChild);
      }
-     drawLine = false;
      console.log("...COMPLETED!")
 }
 
@@ -28,48 +23,46 @@ var draw = function(event) {
           // creating the dot
           const dot = document.createElementNS(xmlns, "circle");
           // assigning dot attributes
-          dot.setAttribute("r", 5);
+          dot.setAttribute("r", 15);
           dot.setAttribute("fill", "black");
           dot.setAttribute("cx", mouseX);
           dot.setAttribute("cy", mouseY);
           // appending dot to svg container
           container.appendChild(dot);
-          
-          // drawing the line
-          if (drawLine) {
-               const line = document.createElementNS(xmlns, "line");
-               // assigning line attributes
-               line.setAttribute("stroke", "black")
-               line.setAttribute("x1", mouseX);
-               line.setAttribute("y1", mouseY);
-               line.setAttribute("x2", lastX);
-               line.setAttribute("y2", lastY);
-               // appending line to svg container
-               container.appendChild(line);
-          }
 
-          drawLine = true;
-
-          // setting these coords to last coords
-          lastX = mouseX;
-          lastY = mouseY;
           console.log("...completed!")
      }
 }
 
-var dblclick = function(event) {
+var multiclick = function(event) {
      drawDot = false;
      const mouseX = event.offsetX;
      const mouseY = event.offsetY;
-     if ((mouseX == lastX) && (mouseY == lastY)) {
-          drawDot = false;
-          if (container.lastChild.previousSibling == null) {
-               const prevDot = container.lastChild;
+
+     drawDot = true;
+
+     if (container.hasChildNodes()) {
+          let dots = container.childNodes;
+          for (let i = 0; i < dots.length; i++) {
+               if (dots[i].hasAttributes) {
+                    var attrs = dots[i].attributes;
+                    console.log(attrs[2].value);
+                    // doing it within a RANGE of values instead
+                    if ((attrs[2].value >= mouseX - 5) && (attrs[2].value <= mouseX + 5) && (attrs[3].value >= mouseY - 5) && (attrs[3].value <= mouseY + 5)) {
+                         // triple click!
+                         if (attrs[1].value == "red") {
+                              attrs[2].value = Math.floor((Math.random() * 500) + 1);
+                              attrs[3].value = Math.floor((Math.random() * 500) + 1);
+                         }
+                         attrs[1].value = "red";
+                         drawDot = false;
+                         return 
+                    }
+                    else {
+                         drawDot = true;
+                    }
+               }
           }
-          else {
-               const prevDot = container.lastChild.previousSibling;
-          }
-          prevDot.setAttribute("fill", "red");
      }
      else {
           drawDot = true;
@@ -77,6 +70,6 @@ var dblclick = function(event) {
 }
 
 // adding event listeners
-container.addEventListener("mousedown", dblclick);
+container.addEventListener("mousedown", multiclick);
 container.addEventListener("mousedown", draw);
 clear.addEventListener("click", clearcont);
