@@ -53,6 +53,9 @@ var multiclick = function(event) {
                          if (attrs[1].value == "red") {
                               attrs[2].value = Math.floor((Math.random() * 500) + 1);
                               attrs[3].value = Math.floor((Math.random() * 500) + 1);
+                              attrs[1].value = "black";
+                              drawDot = false;
+                              return 0;
                          }
                          attrs[1].value = "red";
                          drawDot = false;
